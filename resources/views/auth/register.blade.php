@@ -59,7 +59,7 @@
                 @enderror
                   </div>
                   <div class="form-group">
-                    <input type="password_confirm" class="form-control form-control-lg  @error('password-confirm') is-invalid @enderror" id="password-confirm" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new password">
+                    <input type="password" class="form-control form-control-lg  @error('password-confirm') is-invalid @enderror" id="password-confirm" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new password">
                     @error('password-confirm')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
