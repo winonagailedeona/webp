@@ -26,7 +26,7 @@
                 <th> Title </th>
                 <th> Description </th>
                 <th> Content </th>
-                <th> Tiime Updated </th>
+                <th> Time Updated </th>
                 <th> Action </th>
               </tr>
             </thead>
