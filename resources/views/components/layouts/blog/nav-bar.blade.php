@@ -15,17 +15,18 @@
 						<!-- menu start -->
 						<nav class="main-menu">
 							<ul>
-								<li class="current-list-item"><a href="{{ route('home') }}">Home</a>
+								<li><a href="{{ route('home') }}">Home</a>
 								</li>
 								<li><a href="{{ route('about') }}">About</a></li>
 								<li><a href="{{ route('news') }}">News</a>
+								</li>
+								<li><a href="{{ route('contact') }}">Contact</a></li>
+                                <li><a><i class="fa fa-user"></i></a>
 									<ul class="sub-menu">
-										<li><a href="{{ route('news') }}">News</a></li>
-										<li><a href="single-{{ route('news') }}">Single News</a></li>
+										<li><a href="{{ route('login') }}">Login</a></li>
+										<li><a href="single-{{ route('register') }}">Register</a></li>
 									</ul>
 								</li>
-								<li><a href="{{ route('contact') }}"></a></li>
-                                <li><a href="#"></a></li>
 							</ul>
 						</nav>
 						<!-- menu end -->

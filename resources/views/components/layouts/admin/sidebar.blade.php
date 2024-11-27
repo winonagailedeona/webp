@@ -31,9 +31,18 @@
               </a>
               <div class="collapse" id="ui-basic">
                   <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ route('tables') }}">Blog</a>
+                          <a class="nav-link" href="{{ route('about_table') }}">About</a>
                       </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">News</a>
+                    </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
                   </ul>
               </div>
           </li>

@@ -20,6 +20,8 @@
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
+    <!-- SweetAlert2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('images/shortcut_icon.png') }}" />
 </head>

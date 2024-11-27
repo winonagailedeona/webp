@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Blog;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class NewsController extends Controller
+class ContactController extends Controller
 {
-    public function news()
+    public function contact()
     {
-    return view('components.blog.news');
+        return view('components.blog.contact');
     }
 }

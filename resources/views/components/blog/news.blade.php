@@ -1,6 +1,19 @@
 @extends('layouts.blog')
 @section('content')
-<x-layouts.blog.breadcrumb/>
+	<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>We share fresh information</p>
+						<h1>News Article</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
 	<!-- latest news -->
 	<div class="latest-news pt-150 pb-150">
 		<div class="container">
