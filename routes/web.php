@@ -10,8 +10,9 @@ Route::get('/news_table', [App\Http\Controllers\Admin\TablesController::class, '
 
 Route::get('/about_table', [App\Http\Controllers\Admin\TablesController::class, 'about_table'])->name('about_table');
 Route::post('/about_table', [App\Http\Controllers\Admin\TablesController::class, 'add_about'])->name('add.about');
-Route::get('/about/{id}/edit_about', [App\Http\Controllers\Admin\TablesController::class, 'edit_about'])->name('edit.about');
-Route::delete('/about/{id}', [App\Http\Controllers\Admin\TablesController::class, 'delete_about'])->name('delete.about');
+Route::get('/about_table/{id}/edit', [App\Http\Controllers\Admin\TablesController::class, 'edit_about'])->name('edit.about');
+Route::put('/about_table/{id}', [App\Http\Controllers\Admin\TablesController::class, 'update_about'])->name('update.about');
+Route::delete('/about_table/{id}', [App\Http\Controllers\Admin\TablesController::class, 'delete_about'])->name('delete.about');
 
 // Blog
 Route::get('/', [App\Http\Controllers\Blog\HomeController::class, 'home'])->name('home');

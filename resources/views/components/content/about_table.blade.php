@@ -1,6 +1,19 @@
 @extends('layouts.admin_app')
 @section('content')
-    <x-layouts.admin.modal.add-new />
+    <x-layouts.admin.modal.add-new :action="route('add.about')" title="About">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            <textarea class="form-control" id="content" name="content" required></textarea>
+        </div>
+    </x-layouts.admin.modal.add-new>
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="page-header">
@@ -44,13 +57,17 @@
                                     <td>{{ $entry->updated_at ? $entry->updated_at->format('Y-m-d H:i') : 'N/A' }}</td>
                                     <td>
                                         <!-- Example action buttons -->
-                                        <a href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                                        <form action="{{ route('delete.about', $entry->id) }}" method="POST" class="delete-form" style="display: inline-block;">
-                                          @csrf
-                                          @method('DELETE')
-                                          <button type="submit" class="btn btn-danger btn-sm delete-btn"><i
-                                            class="fa fa-trash"></i></button>
-                                      </form>
+                                        <a href="#" class="btn btn-success btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#editModal" data-id="{{ $entry->id }}"
+                                            data-title="{{ $entry->title }}" data-description="{{ $entry->description }}"
+                                            data-content="{{ $entry->content }}"><i class="fa fa-edit"></i></a>
+                                        <form action="{{ route('delete.about', $entry->id) }}" method="POST"
+                                            class="delete-form" style="display: inline-block;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm delete-btn"><i
+                                                    class="fa fa-trash"></i></button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -59,7 +76,52 @@
                 </div>
             </div>
         </div>
-        <!-- content-wrapper ends -->
+        <x-layouts.admin.modal.edit :action="route('update.about', $entry->id)" title="Edit About">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title"
+                    value="{{ old('title', $entry->title) }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description" required>{{ old('description', $entry->description) }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <textarea class="form-control" id="content" name="content" required>{{ old('content', $entry->content) }}</textarea>
+            </div>
+        </x-layouts.admin.modal.edit>
+@endsection
+@section('scripts')
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const editModal = document.getElementById('editModal');
 
+    // Listen for when the modal is shown
+    editModal.addEventListener('show.bs.modal', function(event) {
+        const button = event.relatedTarget;  // Button that triggered the modal
 
-    @endsection
+        // Retrieve the data attributes from the button
+        const id = button.getAttribute('data-id');
+        const title = button.getAttribute('data-title');
+        const description = button.getAttribute('data-description');
+        const content = button.getAttribute('data-content');
+
+        // Debugging: Log the values to the console
+        console.log({ id, title, description, content });
+
+        // Find the form inside the modal
+        const form = editModal.querySelector('form');
+
+        // Dynamically set the form action to the correct route
+        form.action = `/update.about/${id}`;
+
+        // Populate the modal's form fields
+        editModal.querySelector('#title').value = title || '';
+        editModal.querySelector('#description').value = description || '';
+        editModal.querySelector('#content').value = content || '';
+    });
+});
+
+    </script>
+@endsection

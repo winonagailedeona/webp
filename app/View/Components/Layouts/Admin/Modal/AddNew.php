@@ -8,18 +8,16 @@ use Illuminate\View\Component;
 
 class AddNew extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public $action;
+    public $title;
+
+    public function __construct($action, $title)
     {
-        //
+        $this->action = $action;
+        $this->title = $title;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.layouts.admin.modal.add-new');
     }

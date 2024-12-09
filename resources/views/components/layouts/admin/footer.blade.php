@@ -7,11 +7,20 @@
           icon: 'success',
           title: 'Success',
           text: '{{ session('success') }}',
-          timer: 3000,
+          timer: 1000,
           showConfirmButton: false
       });
   });
   @endif
+//   @if ($errors->any())
+//     <div class="alert alert-danger">
+//         <ul>
+//             @foreach ($errors->all() as $error)
+//                 <li>{{ $error }}</li>
+//             @endforeach
+//         </ul>
+//     </div>
+// @endif
 
   // Confirmation for delete
   document.querySelectorAll('.delete-btn').forEach(button => {

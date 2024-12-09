@@ -7,7 +7,7 @@
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left p-5">
                             <div class="brand-logo">
-                                <img src="{{ asset('admin/images/logo.png') }}" style="width: 100%">
+                                <img src="{{ asset('images/logo.png') }}" style="width: 100%">
                             </div>
                             <h4>New here?</h4>
                             <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>

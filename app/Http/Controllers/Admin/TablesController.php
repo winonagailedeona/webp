@@ -15,29 +15,48 @@ class TablesController extends Controller
     }
 
     public function edit_about($id)
-{
-    $entry = About::findOrFail($id);
-    return view('about.edit', compact('entry'));
-}
+    {
+        $aboutEntries = About::findOrFail($id);  // Fetch the About aboutEntries
+        return view('components.content.edit_about', compact('aboutEntries'));
+    }
 
+        // Handle the update of an About entry
+        public function update_about(Request $request, $id)
+        {
+            $validated = $request->validate([
+                'title' => 'required|string|max:255',
+                'description' => 'required|string',
+                'content' => 'required|string',
+            ]);
+    
+            $aboutEntries = About::findOrFail($id);
+            $aboutEntries->update($validated);  // Update the About aboutEntries
+    
+            return redirect()->route('about_table')->with('success', 'About section updated successfully!');
+        }
+    
 public function delete_about($id)
 {
     $entry = About::findOrFail($id);
     $entry->delete();
     return redirect()->route('about_table')->with('success', 'Entry deleted successfully');
 }
-
 public function add_about(Request $request)
-    {
-        $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required',
-            'content' => 'required',
-        ]);
+{
+    // Validate the incoming request
+    $validated = $request->validate([
+        'title' => 'required|string|max:255',
+        'description' => 'required|string',
+        'content' => 'required|string',
+    ]);
 
-        About::create($request->all());
+    // Create a new About entry
+    About::create($validated);
 
-        return redirect()->route('about_table')->with('success', 'Record added successfully.');
-    }
+    // Redirect with a success message
+    return redirect()->back()->with('success', 'New record added successfully!');
+}
+
+
 }
 

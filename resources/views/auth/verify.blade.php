@@ -8,7 +8,7 @@
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left p-5">
                             <div class="brand-logo">
-                                <img src="{{ asset('admin/images/logo.png') }}" style="width: 100%">
+                                <img src="{{ asset('images/logo.png') }}" style="width: 100%">
                             </div>
                             <h4>Hello! let's get started</h4>
                             <h6 class="font-weight-light">Verify Your Email Address.</h6>
